@@ -30,7 +30,7 @@ Public datasets used in the paper are from [DeepMatcher](https://github.com/anha
 The dataset is divided into three types, with complete examples provided in the `data` folder:
 
 - `./data/toy_back_trans.csv`: Designed specifically for back translation.
-- `./data/toy_da.csv`: Designed for data augmentation without hard negatives or back translation.
+- `./data/toy_da.txt`: Designed for data augmentation without hard negatives or back translation.
 - `./data/toy_hard_neg.json`: Designed for hard negatives.
 
 Before training, ensure the dataset is converted to the corresponding format.
