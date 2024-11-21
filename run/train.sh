@@ -1,0 +1,28 @@
+python run.py \
+  --model_name_or_path "model_name_or_path" \
+  --train_file "dataset_file" \
+  --max_seq_length 128 \
+  --grouped_size 10 \
+  --pool_type "cls" \
+  --use_sparse True \
+  --loss_type "adaptive" \
+  --preprocessing_num_workers 4 \
+  --output_dir "./output" \
+  --num_train_epochs 5 \
+  --per_device_train_batch_size 32 \
+  --learning_rate 5e-5 \
+  --logging_dir "./logs" \
+  --logging_steps 100 \
+  --save_steps 500 \
+  --evaluation_strategy "steps" \
+  --eval_steps 500 \
+  --lambda_learning_rate 0.01 \
+  --hard_negative False \
+  --delete_word True \
+  --delete_word_probability 0.2 \
+  --swap_word True \
+  --swap_word_probability 0.3 \
+  --replace_word True \
+  --replace_word_probability 0.2 \
+  --hnsw_index "hnsw file" \
+  --word2vec_model "word2vec model file"
