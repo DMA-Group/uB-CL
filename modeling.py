@@ -188,13 +188,13 @@ class MPNetForCL(MPNetPreTrainedModel):
         # self.loss_fct = AdaptiveuBCLLoss(self.model_args.initial_lambda, self.model_args.lambda_shape)
         # self.loss_fct_sparse = AdaptiveuBCLLoss(self.model_args.initial_lambda, self.model_args.lambda_shape)
         if self.model_args.loss_type == "adaptive":
-            self.loss_fct = AdaptiveuBCLLoss(self.model_args.initial_lambda, self.model_args.lambda_shape)
+            self.loss_fct = AdaptiveuBCLLoss(self.model_args.initial_lambda, self.model_args.lambda_shape, self.model_args.hard_negative)
             if self.model_args.use_sparse:
-                self.loss_fct_sparse = AdaptiveuBCLLoss(self.model_args.initial_lambda, self.model_args.lambda_shape)
+                self.loss_fct_sparse = AdaptiveuBCLLoss(self.model_args.initial_lambda, self.model_args.lambda_shape, self.model_args.hard_negative)
         elif self.model_args.loss_type == "simcse":
-            self.loss_fct = SimCSELoss(self.model_args.temperature)
+            self.loss_fct = SimCSELoss(self.model_args.temperature, self.model_args.hard_negative)
             if self.model_args.use_sparse:
-                self.loss_fct_sparse = SimCSELoss(self.model_args.temperature)
+                self.loss_fct_sparse = SimCSELoss(self.model_args.temperature, self.model_args.hard_negative)
         else:
             raise NotImplementedError
         self.vocab_size = self.mpnet.config.vocab_size
